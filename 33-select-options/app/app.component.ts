@@ -9,4 +9,6 @@ import { Component } from '@angular/core';
     </div>
   `
 })
+// when you want to preselect the one of the options you use [selected] and assign expression which compiles to boolean;
+
 export class AppComponent {}

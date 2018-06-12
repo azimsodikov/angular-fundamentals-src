@@ -9,4 +9,5 @@ import { Component } from '@angular/core';
     </div>
   `
 })
+// To disable the form submit button when form is invalid, just ues [disabled]="form.invalid" attribute;
 export class AppComponent {}
