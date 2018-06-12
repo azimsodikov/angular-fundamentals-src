@@ -13,6 +13,7 @@ interface Passenger {
     <div class="app">
       <h3>Airline Passengers</h3>
       <ul>
+      // This is the property binding way of adding classes, if expression is true it will add the class
         <li *ngFor="let passenger of passengers; let i = index;">
           <span
             class="status"
@@ -22,6 +23,7 @@ interface Passenger {
       </ul>
       <h3>Airline Passengers</h3>
       <ul>
+      // Another way of adding classes is using ngClass and pass an object where object keys would be class names and value would be expressions
         <li *ngFor="let passenger of passengers; let i = index;">
           <span
             class="status"

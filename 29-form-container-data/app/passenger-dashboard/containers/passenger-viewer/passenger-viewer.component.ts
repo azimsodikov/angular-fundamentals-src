@@ -18,7 +18,7 @@ export class PassengerViewerComponent implements OnInit {
   constructor(private passengerService: PassengerDashboardService) {}
   ngOnInit() {
     this.passengerService
-      .getPassenger(1)
+      .getPassenger(2)
       .subscribe((data: Passenger) => this.passenger = data);
   }
 }

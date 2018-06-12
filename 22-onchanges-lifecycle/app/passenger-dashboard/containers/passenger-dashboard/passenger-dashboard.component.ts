@@ -22,6 +22,7 @@ import { Passenger } from '../../models/passenger.interface';
     </div>
   `
 })
+// If it is the one way binding, components should have their little own state independent and should not change when unless we want it!
 export class PassengerDashboardComponent implements OnInit {
   passengers: Passenger[];
   constructor() {}

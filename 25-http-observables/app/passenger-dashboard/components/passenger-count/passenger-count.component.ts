@@ -13,6 +13,7 @@ import { Passenger } from '../../models/passenger.interface';
     </div>
   `
 })
+// When items not avaiable angular throws error, for that reason you need to use safe navigation operator, which will wait for property to available and then bounds that input
 export class PassengerCountComponent {
   @Input()
   items: Passenger[];

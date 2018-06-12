@@ -13,9 +13,10 @@ interface Passenger {
     <div class="app">
       <h3>Airline Passengers</h3>
       <ul>
+        // This is what is going on behind the scenes in angualr compiler when you use *ngFor
         <template ngFor let-passenger let-i="index" [ngForOf]="passengers">
           <li>
-            {{ i }}: {{ passenger.fullname }}
+            {{ i }}: {{ passenger.fullName }}
           </li>
         </template>
       </ul>

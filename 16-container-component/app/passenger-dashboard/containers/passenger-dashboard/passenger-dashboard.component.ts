@@ -10,12 +10,12 @@ import { Passenger } from '../../models/passenger.interface';
       <h3>Airline Passengers</h3>
       <ul>
         <li *ngFor="let passenger of passengers; let i = index;">
-          <span 
+          <span
             class="status"
             [class.checked-in]="passenger.checkedIn"></span>
           {{ i }}: {{ passenger.fullname }}
           <div class="date">
-            Check in date: 
+            Check in date:
             {{ passenger.checkInDate ? (passenger.checkInDate | date: 'yMMMMd' | uppercase) : 'Not checked in' }}
           </div>
           <div class="children">
@@ -26,6 +26,11 @@ import { Passenger } from '../../models/passenger.interface';
     </div>
   `
 })
+// This is called smart/container component to that will receive the data first and passes it to the other child components
+// This component is in its own container and module which gets imported by main app module
+// All the component styles are encapsulated to the component and has its own scope so it does not affect other components
+// This module that holds this component is essentially feature module
+
 export class PassengerDashboardComponent {
   passengers: Passenger[] = [{
     id: 1,

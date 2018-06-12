@@ -19,6 +19,7 @@ export class PassengerDashboardService {
       .get(PASSENGER_API)
       .map((response: Response) => response.json())
       .catch((error: any) => Observable.throw(error.json()));
+      // Just like other operators, there is a operator called .catch in observable, what it does is simply catchs any errors and passes to the observer
   }
 
   updatePassenger(passenger: Passenger): Observable<Passenger> {

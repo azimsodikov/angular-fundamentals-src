@@ -72,7 +72,7 @@ import { Baggage } from '../../models/baggage.interface';
   `
 })
 export class PassengerFormComponent {
-
+// option has a [selected] property which lets to assign preselected values
   @Input()
   detail: Passenger;
 

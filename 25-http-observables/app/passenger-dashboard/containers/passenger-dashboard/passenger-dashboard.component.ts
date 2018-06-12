@@ -36,6 +36,8 @@ export class PassengerDashboardComponent implements OnInit {
     this.passengerService
       .updatePassenger(event)
       .subscribe((data: Passenger) => {
+        // update passenger method just returns updated passenger, since we know what we updated locally we just gonna change that locally,
+        //.. thats why we are not using data that is being returned
         this.passengers = this.passengers.map((passenger: Passenger) => {
           if (passenger.id === event.id) {
             passenger = Object.assign({}, passenger, event);
@@ -48,6 +50,7 @@ export class PassengerDashboardComponent implements OnInit {
     this.passengerService
       .removePassenger(event)
       .subscribe((data: Passenger) => {
+        // The same thing here since we know which passenger we deleted locally we do not have to fetch the data again
         this.passengers = this.passengers.filter((passenger: Passenger) => {
           return passenger.id !== event.id;
         });

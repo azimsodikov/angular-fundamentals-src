@@ -21,12 +21,12 @@ interface Passenger {
       <h3>Airline Passengers</h3>
       <ul>
         <li *ngFor="let passenger of passengers; let i = index;">
-          <span 
+          <span
             class="status"
             [class.checked-in]="passenger.checkedIn"></span>
           {{ i }}: {{ passenger.fullname }}
           <div class="date">
-            Check in date: 
+            Check in date:
             {{ passenger.checkInDate ? (passenger.checkInDate | date: 'yMMMMd' | uppercase) : 'Not checked in' }}
           </div>
           <div class="children">
@@ -37,6 +37,11 @@ interface Passenger {
     </div>
   `
 })
+// There are Smart/Container and Presentational components
+// Smart/Container components usually has a service injected to it and it has the data that will be communicated to the child components and renders them
+// Dumb/Presentaional components usually accept the data via inputs and emits data changes via output
+// In the child component once there is a event/user interaction occurs, you need to send that data to parent component through event emitters
+// Data flows down, Events emit up!
 export class AppComponent {
   passengers: Passenger[] = [{
     id: 1,

@@ -9,8 +9,8 @@ import { Passenger } from '../../models/passenger.interface';
     <div>
       <span class="status" [class.checked-in]="detail.checkedIn"></span>
       <div *ngIf="editing">
-        <input 
-          type="text" 
+        <input
+          type="text"
           [value]="detail.fullname"
           (input)="onNameChange(name.value)"
           #name>
@@ -19,7 +19,7 @@ import { Passenger } from '../../models/passenger.interface';
         {{ detail.fullname }}
       </div>
       <div class="date">
-        Check in date: 
+        Check in date:
         {{ detail.checkInDate ? (detail.checkInDate | date: 'yMMMMd' | uppercase) : 'Not checked in' }}
       </div>
       <div class="children">
@@ -41,18 +41,20 @@ export class PassengerDetailComponent {
 
   @Output()
   edit: EventEmitter<any> = new EventEmitter();
+  // .. So when we create output event we send data to the parent component through custom event emitter, and in the parent component we will have
+  // .. (edit)="someCallbackFunction($event)" that will catch that event and fires that call back function
 
   @Output()
   remove: EventEmitter<any> = new EventEmitter();
 
   editing: boolean = false;
-  
+
   constructor() {}
-  
+
   onNameChange(value: string) {
-    this.detail.fullname = value;
+    this.detail.fullname = value; // To keep the local state of the component, so when it is being edited local name also gets that value
   }
-  
+
   toggleEdit() {
     if (this.editing) {
       this.edit.emit(this.detail);

@@ -55,10 +55,19 @@ export class PassengerDashboardComponent implements OnInit {
       children: null
     }];
   }
-  handleEdit(event) {
-    console.log(event);
+  handleEdit(event: Passenger) {
+    this.passengers = this.passengers.map((passenger: Passenger) => {
+      if (passenger.id === event.id) {
+        passenger = Object.assign({}, passenger, event);
+        // What object assign does is to merge and update new passenger with the old passenger
+      }
+      return passenger;
+    });
+    console.log(this.passengers);
   }
   handleRemove(event) {
-    console.log(event);
+    this.passengers = this.passengers.filter((passenger: Passenger) => {
+      return passenger.id !== event.id; // Filter method actually mutates the object and returns new array object
+    });
   }
 }

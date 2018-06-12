@@ -17,7 +17,7 @@ export class PassengerCountComponent {
   @Input()
   items: Passenger[];
   checkedInCount(): number {
-    if (!this.items) return;
+    if (!this.items) return; // This is the proper way to check whether something exists before running the functoin
     return this.items.filter((passenger: Passenger) => passenger.checkedIn).length;
   }
 }

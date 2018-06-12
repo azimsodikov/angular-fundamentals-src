@@ -12,8 +12,8 @@ interface Passenger {
   template: `
     <div class="app">
       <h3>Airline Passengers</h3>
-      <h3>Airline Passengers</h3>
       <ul>
+        // There is style object in every element and we can take advantage of that property, and tell angular compiler to add these styles to this element
         <li *ngFor="let passenger of passengers; let i = index;">
           <span
             class="status"
@@ -23,6 +23,7 @@ interface Passenger {
       </ul>
       <h3>Airline Passengers</h3>
       <ul>
+      // There is the built in ngStyle property that you can pass object to it just like an ngClass to change the styles dynamically
         <li *ngFor="let passenger of passengers; let i = index;">
           <span
             class="status"

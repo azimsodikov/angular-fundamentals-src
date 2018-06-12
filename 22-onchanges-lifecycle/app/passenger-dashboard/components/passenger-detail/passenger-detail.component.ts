@@ -9,8 +9,8 @@ import { Passenger } from '../../models/passenger.interface';
     <div>
       <span class="status" [class.checked-in]="detail.checkedIn"></span>
       <div *ngIf="editing">
-        <input 
-          type="text" 
+        <input
+          type="text"
           [value]="detail.fullname"
           (input)="onNameChange(name.value)"
           #name>
@@ -19,7 +19,7 @@ import { Passenger } from '../../models/passenger.interface';
         {{ detail.fullname }}
       </div>
       <div class="date">
-        Check in date: 
+        Check in date:
         {{ detail.checkInDate ? (detail.checkInDate | date: 'yMMMMd' | uppercase) : 'Not checked in' }}
       </div>
       <div class="children">
@@ -46,24 +46,26 @@ export class PassengerDetailComponent implements OnChanges, OnInit {
   remove: EventEmitter<any> = new EventEmitter();
 
   editing: boolean = false;
-  
-  constructor() {}
 
+  constructor() {}
+// ngOnChanges are used to break the binding between child and parent component, how js works is whenever you change a variable
+// ..after declaration, when you change down the road it will change the original variable too.
   ngOnChanges(changes) {
     if (changes.detail) {
       this.detail = Object.assign({}, changes.detail.currentValue);
     }
+    // ngOnChanges are called before ngOnInit, before component initialized that is why we can intercept that detail before it is being initialized.
     console.log('ngOnChanges');
   }
 
   ngOnInit() {
     console.log('ngOnInit');
   }
-  
+
   onNameChange(value: string) {
     this.detail.fullname = value;
   }
-  
+
   toggleEdit() {
     if (this.editing) {
       this.edit.emit(this.detail);

@@ -8,12 +8,12 @@ import { Component } from '@angular/core';
       <button (click)="handleClick()">
         Change name
       </button>
-      <input 
-        type="text" 
+      <input
+        type="text"
         [ngModel]="name"
         (ngModelChange)="handleChange($event)">
-      <input 
-        type="text" 
+      <input
+        type="text"
         [(ngModel)]="name">
       <div>{{ name }}</div>
     </div>
@@ -24,6 +24,8 @@ export class AppComponent {
   handleClick() {
     this.name = 'Motto';
   }
+  // There is also two way data binding using [(ngModel)]="name"
+  // You need to import formsModule in the @NgModule to be able to use ngModel
   handleChange(value: string) {
     this.name = value;
   }

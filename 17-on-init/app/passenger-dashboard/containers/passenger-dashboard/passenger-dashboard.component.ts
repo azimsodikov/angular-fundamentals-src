@@ -10,12 +10,12 @@ import { Passenger } from '../../models/passenger.interface';
       <h3>Airline Passengers</h3>
       <ul>
         <li *ngFor="let passenger of passengers; let i = index;">
-          <span 
+          <span
             class="status"
             [class.checked-in]="passenger.checkedIn"></span>
           {{ i }}: {{ passenger.fullname }}
           <div class="date">
-            Check in date: 
+            Check in date:
             {{ passenger.checkInDate ? (passenger.checkInDate | date: 'yMMMMd' | uppercase) : 'Not checked in' }}
           </div>
           <div class="children">
@@ -26,9 +26,13 @@ import { Passenger } from '../../models/passenger.interface';
     </div>
   `
 })
+// We put our initial data inside a ngOnInit(), because when component is initialized, angular will call ngOnInit method
 export class PassengerDashboardComponent implements OnInit {
   passengers: Passenger[];
+
   constructor() {}
+
+
   ngOnInit() {
     console.log('ngOnInit');
     this.passengers = [{
